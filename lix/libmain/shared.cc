@@ -1,3 +1,4 @@
+#include "lix/libcmd/installables.hh"
 #include "lix/libexpr/eval-settings.hh"
 #include "lix/libfetchers/fetch-settings.hh"
 #include "lix/libmain/crash-handler.hh"
@@ -146,6 +147,8 @@ void initNix()
 
     registerCrashHandler();
 
+    //libcmd
+    GlobalConfig::registerGlobalConfig(installablesSettings);
     // libutil
     GlobalConfig::registerGlobalConfig(loggerSettings);
     GlobalConfig::registerGlobalConfig(featureSettings);

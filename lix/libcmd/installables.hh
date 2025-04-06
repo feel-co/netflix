@@ -7,10 +7,21 @@
 #include "lix/libcmd/built-path.hh"
 #include "lix/libstore/store-api.hh"
 #include "lix/libstore/build-result.hh"
+#include "lix/libutil/config.hh"
 
 #include <optional>
 
 namespace nix {
+
+struct InstallablesSettings : public Config
+{
+    std::string getDefaultFlake(std::string_view url);
+
+#include "lix/libcmd/libcmd-settings.gen.inc"
+};
+
+// FIXME: don't use a global variable.
+extern InstallablesSettings installablesSettings;
 
 struct DrvInfo;
 
