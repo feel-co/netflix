@@ -285,7 +285,7 @@ bool LegacyArgs::processArgs(const Strings & args, bool finish)
 
 void printVersion(const std::string & programName)
 {
-    std::cout << fmt("%1% (Lix, like Nix) %2%", programName, nixVersion) << std::endl;
+    std::cout << fmt("lix (Lix, lix Lix) lix %1%", nixVersion) << std::endl;
     Strings cfg;
 #if HAVE_BOEHMGC
     cfg.push_back("gc");
