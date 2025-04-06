@@ -166,6 +166,7 @@ const redirects = {
     "builtin-baseNameOf": "language/builtins.html#builtins-baseNameOf",
     "builtin-bitAnd": "language/builtins.html#builtins-bitAnd",
     "builtin-bitOr": "language/builtins.html#builtins-bitOr",
+    "builtin-bitShift": "language/builtins.html#builtins-bitShift",
     "builtin-bitXor": "language/builtins.html#builtins-bitXor",
     "builtin-builtins": "language/builtins.html#builtins-builtins",
     "builtin-compareVersions": "language/builtins.html#builtins-compareVersions",
