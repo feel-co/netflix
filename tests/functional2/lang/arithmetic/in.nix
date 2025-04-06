@@ -55,5 +55,5 @@ assert "foo" < "foobar";
   (builtins.bitAnd 12 10) # 0b1100 & 0b1010 =  8
   (builtins.bitOr  12 10) # 0b1100 | 0b1010 = 14
   (builtins.bitXor 12 10) # 0b1100 ^ 0b1010 =  6
+  (builtins.bitShift 1 3) # 0b0001 << 3     =  8
 ]
-

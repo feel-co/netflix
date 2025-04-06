@@ -2718,6 +2718,22 @@ static void prim_bitXor(EvalState & state, Value * * args, Value & v)
     v = {NewValueAs::integer, i1.value ^ i2.value};
 }
 
+static void prim_bitShift(EvalState & state, Value * * args, Value & v)
+{
+    auto e1 = state.forceInt(*args[0], noPos, "while evaluating the first argument passed to builtins.bitShift");
+    auto e2 = state.forceInt(*args[1], noPos, "while evaluating the second argument passed to builtins.bitShift");
+    auto res = NixInt{0};
+
+    if (e2.value == 0)
+        res = e1;
+    else if (e2.value > 0)
+        res = NixInt{e1.value << e2.value};
+    else
+        res = NixInt{e1.value >> (-(e2.value))};
+
+     v = {NewValueAs::integer, res};
+}
+
 static void prim_lessThan(EvalState & state, Value * * args, Value & v)
 {
     state.forceValue(*args[0], noPos);
