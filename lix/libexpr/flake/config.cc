@@ -143,6 +143,11 @@ void ConfigFile::apply()
         else
             assert(false);
 
+        if (nix::fetchSettings.rejectFlakeConfig) {
+            printTaggedWarning("ignoring untrusted flake configuration setting '%s' due to the '%s' setting.", name, "reject-flake-config");
+            continue;
+        }
+
         bool trusted = whitelist.count(baseName);
 
         if (!trusted) {

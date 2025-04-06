@@ -28,6 +28,7 @@ libfetchers_setting_definitions = files(
   'settings/allow-dirty.md',
   'settings/commit-lockfile-summary.md',
   'settings/flake-registry.md',
+  'settings/reject-flake-config.md',
   'settings/use-registries.md',
   'settings/warn-dirty.md',
 )
