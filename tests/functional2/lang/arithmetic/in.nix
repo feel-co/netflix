@@ -30,6 +30,7 @@ in
       (builtins.bitAnd 12 10) # 0b1100 & 0b1010 =  8
       (builtins.bitOr  12 10) # 0b1100 | 0b1010 = 14
       (builtins.bitXor 12 10) # 0b1100 ^ 0b1010 =  6
+      (builtins.bitShift 1 3) # 0b0001 << 3     =  8
 
       (if 3 < 7 then 1 else err)
       (if 7 < 3 then err else 1)
@@ -56,4 +57,3 @@ in
       (if "aa" < "aa" then err else 1)
       (if "foo" < "foobar" then 1 else err)
     ]
-

@@ -506,6 +506,11 @@ namespace nix {
         ASSERT_THAT(v, IsIntEq(1));
     }
 
+    TEST_F(PrimOpTest, bitShift) {
+        auto v = eval("builtins.bitShift 3 3");
+        ASSERT_THAT(v, IsIntEq(24));
+    }
+
     TEST_F(PrimOpTest, lessThanFalse) {
         auto v = eval("builtins.lessThan 3 1");
         ASSERT_THAT(v, IsFalse());

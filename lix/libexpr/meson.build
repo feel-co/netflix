@@ -58,6 +58,7 @@ builtin_definitions = files(
   'builtins/baseNameOf.md',
   'builtins/bitAnd.md',
   'builtins/bitOr.md',
+  'builtins/bitShift.md',
   'builtins/bitXor.md',
   'builtins/break.md',
   'builtins/catAttrs.md',
