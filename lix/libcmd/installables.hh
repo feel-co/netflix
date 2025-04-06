@@ -12,6 +12,17 @@
 
 namespace nix {
 
+
+struct InstallablesSettings : Config
+{
+    Setting<std::string> defaultFlake{this, "nixpkgs", "default-flake",
+        "The default flake URL when using the command line interface"};
+
+    std::string getDefaultFlake(std::string_view url);
+};
+
+extern InstallablesSettings installablesSettings;
+
 struct DrvInfo;
 
 enum class Realise {
