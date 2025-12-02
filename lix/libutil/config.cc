@@ -277,8 +277,7 @@ template<> ExperimentalFeatures BaseSetting<ExperimentalFeatures>::parse(const s
     for (auto & s : tokenizeString<StringSet>(str)) {
         if (auto thisXpFeature = parseExperimentalFeature(s); thisXpFeature) {
             res = res | thisXpFeature.value();
-        } else
-            printTaggedWarning("unknown experimental feature '%s'", s);
+        }
     }
     return res;
 }

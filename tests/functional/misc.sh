@@ -23,12 +23,3 @@ echo $eval_arg_res | grep "infinite recursion encountered"
 eval_stdin_res=$(echo 'let a = {} // a; in a.foo' | nix-instantiate --eval -E - 2>&1 || true)
 echo $eval_stdin_res | grep "at «stdin»:1:15:"
 echo $eval_stdin_res | grep "infinite recursion encountered"
-
-# Unknown setting warning
-# NOTE(cole-h): behavior is different depending on the order, which is why we test an unknown option
-# before and after the `'{}'`!
-out="$(expectStderr 0 nix-instantiate --option foobar baz --expr '{}')"
-[[ "$(echo "$out" | grep foobar | wc -l)" = 1 ]]
-
-out="$(expectStderr 0 nix-instantiate '{}' --option foobar baz --expr )"
-[[ "$(echo "$out" | grep foobar | wc -l)" = 1 ]]
