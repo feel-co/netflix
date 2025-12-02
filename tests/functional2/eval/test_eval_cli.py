@@ -131,14 +131,3 @@ def test_valid_symlink_resolution(nix: Nix):
     """Check that relative symlinks are resolved correctly."""
     res = nix.nix(["eval", "--impure", "--expr", "import ./foo/bar"]).run().ok()
     assert res.stdout_plain == "123"
-
-
-def test_valid_warn_unknown_setting(nix: Nix):
-    """Test that unknown settings are warned about"""
-    res = (
-        nix.nix(["eval", "--option", "foobar", "baz", "--expr", '"foxes are cute"', "--raw"])
-        .run()
-        .ok()
-    )
-    assert res.stdout_plain == "foxes are cute"
-    assert "warning: unknown setting 'foobar'" in res.stderr_plain

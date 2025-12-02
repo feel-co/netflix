@@ -116,9 +116,6 @@ void AbstractConfig::applyConfig(const std::string & contents, const ApplyConfig
 
 void AbstractConfig::warnUnknownSettings()
 {
-    for (const auto & s : unknownSettings) {
-        printTaggedWarning("unknown setting '%s'", s.first);
-    }
 }
 
 void AbstractConfig::reapplyUnknownSettings()
