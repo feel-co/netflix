@@ -72,8 +72,6 @@ AbstractConfig::AbstractConfig(StringMap initials)
 
 void AbstractConfig::warnUnknownSettings()
 {
-    for (const auto & s : unknownSettings)
-        printTaggedWarning("unknown setting '%s'", s.first);
 }
 
 void AbstractConfig::reapplyUnknownSettings()
@@ -351,8 +349,7 @@ template<> ExperimentalFeatures BaseSetting<ExperimentalFeatures>::parse(const s
     for (auto & s : tokenizeString<StringSet>(str)) {
         if (auto thisXpFeature = parseExperimentalFeature(s); thisXpFeature) {
             res = res | thisXpFeature.value();
-        } else
-            printTaggedWarning("unknown experimental feature '%s'", s);
+        }
     }
     return res;
 }
